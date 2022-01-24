@@ -12,5 +12,4 @@ WITH CTE AS (
 		CTE."Color", 
 		CTE."Total Sold"
     FROM CTE
-	ORDER BY "Total Sold" DESC
-	LIMIT 3;
+	ORDER BY "Total Sold" DESC;
