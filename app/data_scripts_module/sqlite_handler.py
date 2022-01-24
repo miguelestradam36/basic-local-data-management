@@ -52,11 +52,8 @@ class SqLiteManager():
             if from_file:
                 with open(script, 'r') as sql_file:
                     script = sql_file.read()
-                self.cursor.executescript(script)
-                print('\n',self.cursor.fetchall(),'\n')
-            else:   
-                self.cursor.execute(script)
-                print('\n',self.cursor.fetchall(),'\n')
+            self.cursor.execute(script)
+            print('\n',self.cursor.fetchall(),'\n')
         except Exception as error:
             print("\nERROR: {}\n".format(error))
         finally:
