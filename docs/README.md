@@ -4,6 +4,8 @@
 
 ## Set Up
 
+## Extras
+
 ### Virtual Environment Configuration
 
 To configure a Virtual Environment, the script would look as following:
@@ -24,6 +26,4 @@ python -m venv venv
 
 #Activate venv
 source venv/bin/python3
-
-
 ```

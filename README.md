@@ -20,8 +20,6 @@ First steps to use this project into your computer.
 
 #### Manual Execution
 
-If you want to run this app directly on your **Operating System**
-
 ```bash
 #Do the data transformations
 python app/main.py
@@ -29,20 +27,11 @@ python app/main.py
 jupyter nbconvert --to notebook --execute notebooks/reports.ipynb --output notebooks/output/reports.ipynb
 ```
 
-If you want to run it upon a Virtual Environment:
-
-1. First run
-```bash
-python -m venv venv
-```
-2. Then active your virtual environment:
-   - For **Linux** or **MacOS**: 
-     - from **Bash** `source venv/bin/python3` *or* `venv/bin/activate`
-   - For **Windows**: 
-     - from **CMD** `venv\Scripts\Activate.bat` *or* `ven\Scripts\activate`
-     - from **Git Bash**, the same commands as on Linux.
-
 #### Automatic Execution
+
+```bash
+make example-excercise
+```
 
 ## Documentation Overview :arrow_down:
 
