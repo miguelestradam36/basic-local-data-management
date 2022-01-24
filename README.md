@@ -8,7 +8,16 @@ Solution developed on **Windows**.
 
 To run this program, do one of the following :arrow_down:
 
+### Only for Windows visitors
+
+For more information about how to install Makefile into your computer, direct to:
+
+- For a more detailed description: []()
+- For a quick set-up: []()
+
 ### First-Use Instructions
+
+#### Manual Set-Up
 
 - If you want to run this app directly on your **Operating System**
   - `python app/main.py` *or* `python3 app/main.py`
@@ -25,11 +34,13 @@ To run this program, do one of the following :arrow_down:
        - from **CMD** `venv\Scripts\Activate.bat` *or* `ven\Scripts\activate`
        - from **Git Bash**, the same commands as on Linux.
 
-Consult the scripts at the documentation: [Documentation README](docs/README.md)
+#### Automatic Set-Up
 
-## About this project
+## Documentation Overview :arrow_down:
 
-Some of the details of the project are listed below :arrow_down:
+Quick overview over some of the functionalities of this project.
+
+Consult the documentation folder for more information: [Documentation](docs/)
 
 ### Data Diagram
 
