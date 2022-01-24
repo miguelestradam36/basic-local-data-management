@@ -1,4 +1,4 @@
-CREATE TABLE `Clients` (
+CREATE TABLE IF NOT EXISTS `Clients` (
   `ClientID` int PRIMARY KEY AUTO_INCREMENT,
   `ClientName` varchar(100),
   `Address1` varchar(100),
@@ -16,18 +16,18 @@ CREATE TABLE `Clients` (
   `IsDealer` boolean
 );
 
-CREATE TABLE `Colors` (
+CREATE TABLE IF NOT EXISTS `Colors` (
   `ColorID` int PRIMARY KEY AUTO_INCREMENT,
   `Color` varchar(100)
 );
 
-CREATE TABLE `Countries` (
+CREATE TABLE IF NOT EXISTS `Countries` (
   `CountryID` int PRIMARY KEY AUTO_INCREMENT,
   `CountryName` varchar(100),
   `CountryISOCode` varchar(100)
 );
 
-CREATE TABLE `Stock` (
+CREATE TABLE IF NOT EXISTS `Stock` (
   `StockID` int PRIMARY KEY AUTO_INCREMENT,
   `Make` varchar(100),
   `Model` varchar(100),
@@ -41,7 +41,7 @@ CREATE TABLE `Stock` (
   `VehicleAgeInYears` int
 );
 
-CREATE TABLE `Invoices` (
+CREATE TABLE IF NOT EXISTS `Invoices` (
   `InvoiceID` int PRIMARY KEY AUTO_INCREMENT,
   `InvoiceNumber` varchar(100),
   `ClientID` int,
@@ -51,7 +51,7 @@ CREATE TABLE `Invoices` (
   `InvoiceDateKey` int
 );
 
-CREATE TABLE `InvoiceLines` (
+CREATE TABLE IF NOT EXISTS `InvoiceLines` (
   `InvoiceLineID` int PRIMARY KEY AUTO_INCREMENT,
   `InvoiceId` int,
   `StockId` int,
@@ -59,7 +59,7 @@ CREATE TABLE `InvoiceLines` (
   `LineItem` int
 );
 
-CREATE TABLE `DateDimension` (
+CREATE TABLE IF NOT EXISTS `DateDimension` (
   `DateKey` date PRIMARY KEY,
   `Year` int,
   `MonthNum` int,

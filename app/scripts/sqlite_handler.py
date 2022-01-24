@@ -8,17 +8,20 @@ class SqLiteManager():
     @property
     def database(self):
         """
-        
+        Getter method, database path location.
         """
         return self.database
 
     @property.setter
     def database(self, db_path:str):
         """
-        
+        Setter method, called to define the connection to SqLite connection
+
+        param -> db_path: Location of database into which we are going to write/get our data.
+        param -> db_path: string       
         """
-        self.database = db_path
         try:
+            self.database = db_path
             print('connecting to database...')
             self.connection = self.sqlite3.connect(self.database)
             self.cursor = self.connection.cursor()
@@ -26,24 +29,52 @@ class SqLiteManager():
         except Exception as error:
             print("\nERROR: {}\n".format(error))
 
-    def load_data(self):
+    def run_query(self, from_file:bool=False, script:str="SHOW TABLES;")->None:
         """
-        
-        """
-        print('Starting data load...')
+        Setter method, called to define the connection to SqLite connection
 
-    def __del__(self):
+        param -> db_path -> description: 
+        param -> db_path -> type: string
+        param -> db_path -> default: 'SHOW TABLES;'
+
+        param -> db_path -> description: 
+        param -> db_path -> type: bool
+        param -> db_path -> default: False
         """
-        
+        try:
+            if from_file:
+                with open(script, 'r') as sql_file:
+                    script = sql_file.read()
+                self.cursor.executescript(script)
+            else:   
+                self.cursor.execute(script)
+        except Exception as error:
+            print("\nERROR: {}\n".format(error))
+        finally:
+            if self.save_changes():
+                print('commited action...')
+            else:
+                print('there is nothing to commit...')
+
+    def save_changes(self)->bool:
+        """
+        Changes into SqLite database have to be commited in order to be saved.  
         """
         try:
             print('Automatically saving changes...')
             self.connection.commit()
+            return True
         except Exception as error:
             print("\nERROR: {}\n".format(error))
-        finally:
-            try:
-                print('Closing connection...')
-                self.cursor.close()
-            except Exception as error:
-                print("\nERROR: {}\n".format(error))
+        return False
+
+    def __del__(self):
+        """
+        Deletion method, this is done automatically once all the tasks have been executed
+
+        In this case, the changes done to the database will be automatically commited and the connection closed.
+        """
+
+        self.save_changes()
+
+        self.cursor.close()

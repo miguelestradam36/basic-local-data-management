@@ -8,7 +8,7 @@ class DataManager(SqLiteManager):
     pd = __import__('pandas')
 
     def __init__(self):
-        print('Starting data management services with Pandas...')
+        print('Starting data management services...')
 
     @property
     def filename(self):
@@ -42,8 +42,14 @@ class DataManager(SqLiteManager):
             print("\nERROR: {}\n".format(error))
         return None
 
+    def excel_to_db(self)->None:
+        try:
+            print('transforming excel into SqLite Database')
+        except Exception as error:
+            print("\nERROR: {}\n".format(error))
+
     def __del__(self):
         """
-        
+        Deletion method, this is done automatically once all the tasks have been executed
         """
         print('finished reading and transforming data...')

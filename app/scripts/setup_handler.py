@@ -20,7 +20,7 @@ class SetUpManager():
         param -> file_path: string      
         """
         print('Checking system...')
-        self.requirements_location = file_path
+        self.requirements_location = self.os.path.join(self.os.path.dirname(__file__), file_path)
 
         with open(self.requirements_location, 'r') as file:
             modules = file.readlines()
