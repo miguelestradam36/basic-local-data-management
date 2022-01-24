@@ -1,12 +1,27 @@
-class DataManager():
+from sqlite_handler import SqLiteManager
+
+class DataManager(SqLiteManager):
+    """
+        
+    """
+    #module as attribute to facilitate imports
     pd = __import__('pandas')
+
+    def __init__(self):
+        print('Starting data management services with Pandas...')
 
     @property
     def filename(self):
+        """
+        
+        """
         return self.filename
 
     @property.setter
     def filename(self, filename:str):
+        """
+        
+        """
         print('setting new data source...')
         self.filename = filename
         print('reading source...')
@@ -16,6 +31,9 @@ class DataManager():
             print("\nERROR: {}\n".format(error))
 
     def get_sheet(self, sheet_name:str):
+        """
+        
+        """
         print('reading sheet...')
         try:
             df = self.pd.read_excel(self.xls, sheet_name)
@@ -25,4 +43,7 @@ class DataManager():
         return None
 
     def __del__(self):
+        """
+        
+        """
         print('finished reading and transforming data...')
