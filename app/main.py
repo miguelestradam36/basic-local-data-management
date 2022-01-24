@@ -15,7 +15,6 @@ class SetUpTask(threading.Thread):
 
     def run(self):
         #TODO: Insert the set-up actions
-
         from scripts.setup_handler import SetUpManager
         os_handler = SetUpManager()
         os_handler.requirements_location = 'config/requirements.txt'
@@ -28,6 +27,11 @@ def do_installs():
     #installments.join() is not used, since if I were to join the threads I would be causing the imports problem I try to avoid
     del installments
 
+def main():
+    oop_example = DataManager()
+    oop_example.filename = 'data/CarSalesDataForReports.xlsx'
+    oop_example.database = 'database/CarSalesData.db'
+
 #Main thread
 if __name__ == "__main__":
     print("Starting excercise...")
@@ -36,4 +40,5 @@ if __name__ == "__main__":
     do_installs()
 
     #TODO: Data Manipulation scripts goes here
+    main()
 

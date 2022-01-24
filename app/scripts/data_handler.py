@@ -7,6 +7,13 @@ class DataManager(SqLiteManager):
     #module as attribute to facilitate imports
     pd = __import__('pandas')
 
+    #normal attributes
+    filename = ''
+
+    #------------------------
+    # Methods
+    #------------------------
+
     def __init__(self):
         print('Starting data management services...')
 
@@ -30,21 +37,18 @@ class DataManager(SqLiteManager):
         except Exception as error:
             print("\nERROR: {}\n".format(error))
 
-    def get_sheet(self, sheet_name:str):
-        """
-        
-        """
-        print('reading sheet...')
-        try:
-            df = self.pd.read_excel(self.xls, sheet_name)
-            return df
-        except Exception as error:
-            print("\nERROR: {}\n".format(error))
-        return None
-
     def excel_to_db(self)->None:
         try:
+            assert self.filename != ''
+            assert self.connection != ''
             print('transforming excel into SqLite Database')
+            for sheet_name in self.xls.sheet_names:
+                print('reading sheet {}...'.format(sheet_name))
+                try:
+                    df = self.pd.read_excel(self.xls, sheet_name=sheet_name)
+                    df.to_sql(sheet_name, self.connection, if_exists="replace")
+                except:
+                    print('ERROR: Unable to read sheet {} from excel file...'.format(sheet_name))
         except Exception as error:
             print("\nERROR: {}\n".format(error))
 

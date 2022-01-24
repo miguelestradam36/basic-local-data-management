@@ -2,6 +2,13 @@ class SqLiteManager():
     #module as attribute to facilitate imports
     sqlite3 = __import__('sqlite3')
 
+    #normal attributes
+    database = ''
+
+    #------------------------
+    # Methods
+    #------------------------
+    
     def __init__(self):
         print('Starting SqLite services...')
 

@@ -3,6 +3,13 @@ class SetUpManager():
     os = __import__('os')
     sys = __import__('sys')
 
+    #Normal attributes
+    requirements_location = ''
+
+    #------------------------
+    # Methods
+    #------------------------
+
     @property
     def requirements_location(self):
         """
