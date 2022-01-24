@@ -3,7 +3,7 @@ class SqLiteManager():
     sqlite3 = __import__('sqlite3')
 
     #normal attributes
-    database = ''
+    database_ = ''
 
     #------------------------
     # Methods
@@ -17,9 +17,9 @@ class SqLiteManager():
         """
         Getter method, database path location.
         """
-        return self.database
+        return self.database_
 
-    @property.setter
+    @database.setter
     def database(self, db_path:str):
         """
         Setter method, called to define the connection to SqLite connection
@@ -28,7 +28,7 @@ class SqLiteManager():
         param -> db_path: string       
         """
         try:
-            self.database = db_path
+            self.database_ = db_path
             print('connecting to database...')
             self.connection = self.sqlite3.connect(self.database)
             self.cursor = self.connection.cursor()
@@ -36,7 +36,7 @@ class SqLiteManager():
         except Exception as error:
             print("\nERROR: {}\n".format(error))
 
-    def run_query(self, from_file:bool=False, script:str="SHOW TABLES;")->None:
+    def run_query(self, from_file:bool=False, script:str="SELECT * FROM Invoices")->None:
         """
         Setter method, called to define the connection to SqLite connection
 
@@ -53,15 +53,15 @@ class SqLiteManager():
                 with open(script, 'r') as sql_file:
                     script = sql_file.read()
                 self.cursor.executescript(script)
+                print('\n',self.cursor.fetchall(),'\n')
             else:   
                 self.cursor.execute(script)
+                print('\n',self.cursor.fetchall(),'\n')
         except Exception as error:
             print("\nERROR: {}\n".format(error))
         finally:
             if self.save_changes():
                 print('commited action...')
-            else:
-                print('there is nothing to commit...')
 
     def save_changes(self)->bool:
         """

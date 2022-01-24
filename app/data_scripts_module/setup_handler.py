@@ -4,7 +4,7 @@ class SetUpManager():
     sys = __import__('sys')
 
     #Normal attributes
-    requirements_location = ''
+    requirements_location_ = ''
 
     #------------------------
     # Methods
@@ -15,9 +15,9 @@ class SetUpManager():
         """
         Getter method, which is used to define the config file path.
         """
-        return self.requirements_location
+        return self.requirements_location_
 
-    @property.setter
+    @requirements_location.setter
     def requirements_location(self, file_path:str):
         """
         Setter method, which can be compared to: 
@@ -27,14 +27,14 @@ class SetUpManager():
         param -> file_path: string      
         """
         print('Checking system...')
-        self.requirements_location = self.os.path.join(self.os.path.dirname(__file__), file_path)
+        self.requirements_location_ = file_path
 
         with open(self.requirements_location, 'r') as file:
             modules = file.readlines()
         
         for module in modules:
-            if not self.check_module(module=module):
-                self.check_module(module=module)
+            module = module.rstrip()
+            self.check_module(module=module)
 
     def check_module(self, module:str)->bool:
         """
@@ -45,11 +45,13 @@ class SetUpManager():
         """
         try:
             __import__(module)
-            print('Checking module into environment...')
-            assert module in self.sys.modules
+            print('Checking {} module into environment...'.format(module))
             print('module {} confirmed on environment'.format(module))
             return True
         except:
             print('Installing module {}...'.format(module))
-            self.os.system('pip install {}'.format(module))
+            self.os.system('pip install {} --quiet'.format(module))
             return False
+    
+    def __del__(self):
+        print("Finished setting up dependencies...\n")

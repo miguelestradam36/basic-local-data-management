@@ -1,4 +1,4 @@
-from sqlite_handler import SqLiteManager
+from .sqlite_handler import SqLiteManager
 
 class DataManager(SqLiteManager):
     """
@@ -6,9 +6,10 @@ class DataManager(SqLiteManager):
     """
     #module as attribute to facilitate imports
     pd = __import__('pandas')
+    sys = __import__('sys')
 
     #normal attributes
-    filename = ''
+    filename_ = ''
 
     #------------------------
     # Methods
@@ -22,20 +23,23 @@ class DataManager(SqLiteManager):
         """
         
         """
-        return self.filename
+        return self.filename_
 
-    @property.setter
+    @filename.setter
     def filename(self, filename:str):
         """
         
         """
         print('setting new data source...')
-        self.filename = filename
+        self.filename_ = filename
         print('reading source...')
         try:
             self.xls = self.pd.ExcelFile(self.filename)
         except Exception as error:
+            print('Unable to read Excel file...')
             print("\nERROR: {}\n".format(error))
+            self.sys.exit(-1)
+
 
     def excel_to_db(self)->None:
         try:

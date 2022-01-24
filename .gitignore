@@ -1,3 +1,2 @@
-app/database/*
-app/notebooks/*
-!app/notebooks/.gitkeep
+app/venv/*
+app/data_scripts_module/__pycache__/*
