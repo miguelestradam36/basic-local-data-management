@@ -8,36 +8,11 @@ Solution developed on **Windows**.
 
 To run this program, do one of the following :arrow_down:
 
-### Only for Windows visitors
+#### If you plan to use automatic execution...
 
-For more information about how to install Makefile into your computer, direct to:
+This option will need you to be able to execute makefile commands.
 
-- For a more detailed description: [Chocolatey Overview Repo](https://github.com/miguelestradam36/chocolatey-for-windows)
-- For a quick set-up: [Other project that uses Chocolatey and Make GNU](https://github.com/miguelestradam36/python-skillset-01)
-
-### For Linux and MacOS visitors
-
-#### For Linux users
-
-```bash
-#Update the package installer
-sudo apt-get update
-#Make sure you have the build-essentials package to make use of tools like:
-#GCC for example.
-sudo apt-get install build-essential
-
-#At last, let's be 100% sure.
-sudo apt-get -y install make
-```
-
-#### For MacOS users
-
-```bash
-#Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-#Run this command
-brew install make
-```
+For more information about how to install **MAKE GNU** into your computer, direct to: [Makefile Documentation](docs/Makefile.md)
 
 ### First-Use Instructions
 
@@ -84,4 +59,4 @@ For more information about the data used, please refer to: [Scripts Python Modul
 
 ### Author
 
-Miguel Estrada: 
+Miguel Estrada: [miguelestradam36@gmail.com](mailto:miguelestradam36@gmail.com)
