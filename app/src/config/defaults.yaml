@@ -1,0 +1,49 @@
+python:
+  global:
+    modules:
+      standard:
+        - import: pandas
+          install: pandas
+      test:
+        - import: pytest
+          install: pytest
+
+      api-connection:
+        - import: requests
+          install: requests
+        - import: flask
+          install: Flask
+
+  services:
+    # Modules needed for this service
+    modules:
+      - import: boto3
+        install: boto3
+      - import: snowflake
+        install: snowflake-connector-python[secure-local-storage,pandas]
+      - import: azure
+        install: azure
+      - import: boto3
+        install: boto3
+
+    snowflake:
+      profiles:
+        # Default snowflake context
+        default:
+          account:
+          user:
+          password:
+          warehouse:
+          database:
+          schema:
+    azure:
+      profiles:
+        # Default snowflake context
+        default: asdf
+    aws:
+      profiles:
+        # Default snowflake context
+        default:
+          primary_key:
+          secret_primary_key:
+          region:

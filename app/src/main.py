@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     #TODO: Data Manipulation scripts goes here
     oop_example = DataManager()
-    oop_example.filename = os.path.join(os.path.dirname(__file__), 'data/CarSalesDataForReports.xlsx')
-    oop_example.database = os.path.join(os.path.dirname(__file__), 'database/CarSalesData.db')
+    oop_example.filename = os.path.join(os.path.dirname(__file__), '../data/excel/CarSalesDataForReports.xlsx')
+    oop_example.database = os.path.join(os.path.dirname(__file__), '../data/db/CarSalesData.db')
     oop_example.excel_to_db()
     del oop_example

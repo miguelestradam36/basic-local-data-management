@@ -4,9 +4,20 @@
 
 current_dir := $(realpath .)
 APP_PATH = ${current_dir}/app/src/main.py
+BUILD_TEST_PATH = ${current_dir}/app/tests/build.py
 
 ##############################################################################################
-# Commands
+# Jupyter Commands
+##############################################################################################
+
+.PHONY: local-jupyter
+local-jupyter: ## Create pyvenv
+	@echo Local Jupyter...
+	@jupyter nbconvert --to notebook --execute notebooks/reports.ipynb --output output/reports.ipynb
+	@echo.
+
+##############################################################################################
+# Python Commands
 ##############################################################################################
 
 .PHONY: create-venv 
@@ -31,6 +42,7 @@ application: ## Install requirements.txt into venv
 upgrade-venv-pip: ## Upgrade or install pip inside venv
 	@echo Updating and upgrading pip to Python Virtual Environment...
 	@app\venv\Scripts\python -m pip install --upgrade pip
+	@app\venv\Scripts\python -m pip install -r app/src/config/requirements.txt
 	@echo.
 
 .PHONY: exit-venv
@@ -46,7 +58,7 @@ exit-venv: ## Exit the venv
 .PHONY: test-build-venv
 test-build-venv: ## Test the build of your venv
 	@echo TESTING: Build of the Python Virtual Environment
-	@venv\Scripts\pytest -q ${BUILD_TEST_PATH}
+	@app\venv\Scripts\pytest -q ${BUILD_TEST_PATH}
 	@echo.
 
 ##############################################################################################
