@@ -1,11 +1,29 @@
 # Documentation 
 
-## Usage
+## If you plan to use automatic execution...
 
-First run the transformation scripts by executing the python file at the: [python main script of the app](../app/main.py)
+This option will need you to be able to execute makefile commands.
 
-## Set Up
+For more information about how to install **MAKE GNU** into your computer, direct to: [Makefile Documentation](docs/Makefile.md)
 
-In this case, the setup is done automatically by the python scripts.
+## Makefile Documentation
+
+Learn some about the [makefile](makefile/)
+ architecture used in this project.
+
+## Jupyter Notebooks Documentation
+
+Learn some about the [Juptyer notebooks](notebooks/)
+ architecture used in this project.
+
+## Database Documentation
+
+Learn some about the [SQLite](sql/)
+ architecture used in this project.
+
+## Python Virtual Environment Documentation
+
+Learn some about the [Python Virtual Environment](venv/)
+ architecture used in this project.
 
 
