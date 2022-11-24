@@ -2,3 +2,5 @@ app/venv/*
 app/data_scripts_module/__pycache__/*
 app/venv/
 app/venv
+data/db/
+data/excel/
