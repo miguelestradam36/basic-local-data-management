@@ -19,25 +19,6 @@ python:
     modules:
       - import: boto3
         install: boto3
-      - import: snowflake
-        install: snowflake-connector-python[secure-local-storage,pandas]
-      - import: azure
-        install: azure
-
-    snowflake:
-      profiles:
-        # Default snowflake context
-        default:
-          account:
-          user:
-          password:
-          warehouse:
-          database:
-          schema:
-    azure:
-      profiles:
-        # Default snowflake context
-        default: asdf
     aws:
       profiles:
         # Default snowflake context

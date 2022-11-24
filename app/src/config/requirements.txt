@@ -4,5 +4,3 @@ openpyxl
 pytest
 tox
 boto3
-azure
-snowflake-connector-python
