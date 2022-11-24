@@ -5,11 +5,11 @@ class DataManager(SqLiteManager):
         
     """
     #module as attribute to facilitate imports
-    pd = __import__('pandas')
-    sys = __import__('sys')
+    pd = __import__('pandas') #pandas module as attribute
+    sys = __import__('sys') #sys module as attribute
 
     #normal attributes
-    filename_ = ''
+    filename_ = '' #excel output filename
 
     #------------------------
     # Methods
@@ -53,6 +53,12 @@ class DataManager(SqLiteManager):
 
 
     def excel_to_db(self)->None:
+        """
+        Class method
+        ---
+        Params: No parameters/arguments
+        Objective: Write database to excel sheet with tables as sheets.
+        """
         try:
             assert self.filename != ''
             assert self.connection != ''
@@ -70,5 +76,7 @@ class DataManager(SqLiteManager):
     def __del__(self):
         """
         Deletion method, this is done automatically once all the tasks have been executed
+        Objective: Marks the end of processing.
+        Params: No arguments/parameters
         """
         print('finished reading and transforming data...')

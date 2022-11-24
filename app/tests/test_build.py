@@ -1,6 +1,12 @@
 import pytest
 
 def test_dependencies():
+    """
+    Python pytest
+    ---
+    Params: No arguments/parameters
+    Objetive: Test modules into system or environment.
+    """
     import yaml
     import os
     # Repeated values
