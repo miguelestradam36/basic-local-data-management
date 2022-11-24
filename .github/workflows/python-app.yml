@@ -29,3 +29,5 @@ jobs:
         pip install -r app/src/config/requirements.txt
     - name: Test with pytest
       run: pytest app/tests
+    - name: Run Tox test
+      run: app/tox

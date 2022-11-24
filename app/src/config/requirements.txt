@@ -2,3 +2,4 @@ pandas
 PyYAML
 openpyxl
 pytest
+tox

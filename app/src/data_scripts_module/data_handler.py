@@ -16,19 +16,30 @@ class DataManager(SqLiteManager):
     #------------------------
 
     def __init__(self):
+        """
+        Function that initializes class
+        Objective: flag the start of Data Handling
+        Params: No arguments/parameters
+        """
         print('Starting data management services...')
 
     @property
     def filename(self):
         """
-        
+        Getter method
+        ---
+        Objective: retrieve excel filename
+        Params: No arguments/parameters
         """
         return self.filename_
 
     @filename.setter
     def filename(self, filename:str):
         """
-        
+        Setter method
+        ---
+        Objective: Save data into filename provided
+        Params: filename (string [Required])
         """
         print('setting new data source...')
         self.filename_ = filename
