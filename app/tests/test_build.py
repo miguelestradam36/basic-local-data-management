@@ -1,6 +1,6 @@
 import pytest
 
-def test_dependencies(virtualenv):
+def test_dependencies():
     import yaml
     import os
     # Repeated values
@@ -11,20 +11,11 @@ def test_dependencies(virtualenv):
         global yaml_config
         yaml_config = yaml.safe_load(file)
     
-    must_installs = [
-        'PyYAML'
-    ]
-    
-    installed_packages = virtualenv.installed_packages()
-    
     for module in yaml_config["python"]["global"]["modules"]["standard"]:
-        assert module['install'] or module['import'] in installed_packages
+        assert __import__(module['import'])
 
     for module in yaml_config["python"]["services"]["modules"]:
-        assert module['install'] or module['import'] in installed_packages
+        assert __import__(module['import'])
 
     for module in yaml_config["python"]["global"]["modules"]["test"]:
-        assert module['install'] or module['import'] in installed_packages
-
-    for module in must_installs:
-        assert module in installed_packages
+        assert __import__(module['import'])
