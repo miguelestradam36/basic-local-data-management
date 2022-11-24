@@ -23,8 +23,6 @@ python:
         install: snowflake-connector-python[secure-local-storage,pandas]
       - import: azure
         install: azure
-      - import: boto3
-        install: boto3
 
     snowflake:
       profiles:

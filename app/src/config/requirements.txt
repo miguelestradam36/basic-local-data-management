@@ -3,3 +3,6 @@ PyYAML
 openpyxl
 pytest
 tox
+boto3
+azure
+snowflake-connector-python[secure-local-storage,pandas]
