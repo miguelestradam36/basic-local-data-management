@@ -1,15 +1,15 @@
-import yaml
-import os
-
-# Repeated values
-filepath = "../src/config/defaults.yaml"
-fullpath = os.path.join(os.path.dirname(__file__), filepath)
-
-with open(fullpath, 'r') as file:
-    global yaml_config
-    yaml_config = yaml.safe_load(file)
+import pytest
 
 def test_dependencies(virtualenv):
+    import yaml
+    import os
+    # Repeated values
+    filepath = "../src/config/defaults.yaml"
+    fullpath = os.path.join(os.path.dirname(__file__), filepath)
+
+    with open(fullpath, 'r') as file:
+        global yaml_config
+        yaml_config = yaml.safe_load(file)
     
     must_installs = [
         'PyYAML'
