@@ -2,7 +2,7 @@ import yaml
 import os
 
 # Repeated values
-filepath = "..\\src\\config\\defaults.yaml"
+filepath = "../src/config/defaults.yaml"
 fullpath = os.path.join(os.path.dirname(__file__), filepath)
 
 with open(fullpath, 'r') as file:
