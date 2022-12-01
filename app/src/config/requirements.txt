@@ -4,3 +4,4 @@ openpyxl
 pytest
 tox
 boto3
+pysqlite3 
