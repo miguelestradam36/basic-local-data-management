@@ -32,8 +32,8 @@ jobs:
     - name: Test with pytest
       run: pytest app/tests
     - name: Test Notebooks
-      run: |
-        jupyter nbconvert --to script app/notebooks/reports.ipynb
-        python app/notebooks/output/reports.py
-    - name: Test Script
+      run: jupyter nbconvert --to script app/notebooks/reports.ipynb 
+    - name: Test Generated Script
+      run: python app/notebooks/reports.py
+    - name: Test Main Script
       run: python app/src/main.py
