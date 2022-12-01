@@ -34,6 +34,6 @@ jobs:
     - name: Test Notebooks
       run: |
         jupyter nbconvert --to script app/notebooks/reports.ipynb
-        python task1.py
+        python app/notebooks/output/reports.py
     - name: Test Script
       run: python app/src/main.py
