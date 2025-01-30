@@ -64,10 +64,10 @@ class DataManager(SqLiteManager):
             assert self.connection != ''
             print('transforming excel into SqLite Database')
             for sheet_name in self.xls.sheet_names:
-                print('reading sheet {}...'.format(sheet_name))
                 try:
                     df = self.pd.read_excel(self.xls, sheet_name=sheet_name)
                     df.to_sql(sheet_name, self.connection, if_exists="replace")
+                    print('reading sheet {}...'.format(sheet_name))
                 except:
                     print('ERROR: Unable to read sheet {} from excel file...'.format(sheet_name))
         except Exception as error:

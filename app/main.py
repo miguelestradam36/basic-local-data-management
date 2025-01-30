@@ -40,8 +40,9 @@ if __name__ == "__main__":
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
-    oop_example.filename = os.path.join(dir_path, "../data/excel/CarSalesDataForReports.xlsx")
-    oop_example.database = os.path.join(dir_path, "../data/db/CarSalesData.db")
+    oop_example.database = os.path.join(dir_path, "data\\db\\CarSalesData.db")
+
+    oop_example.filename = os.path.join(dir_path, "data\\excel\\CarSalesDataForReports.xlsx")
     
     oop_example.excel_to_db()
     
