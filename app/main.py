@@ -42,8 +42,8 @@ if __name__ == "__main__":
 
     oop_example.database = os.path.join(dir_path, "data\\db\\CarSalesData.db")
 
-    oop_example.filename = os.path.join(dir_path, "data\\excel\\CarSalesDataForReports.xlsx")
+    #oop_example.filename = os.path.join(dir_path, "data\\excel\\CarSalesDataForReports.xlsx")
     
-    oop_example.excel_to_db()
+    #oop_example.excel_to_db()
     
     del oop_example
