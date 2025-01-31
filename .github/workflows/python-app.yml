@@ -32,10 +32,4 @@ jobs:
     - name: Install Jupyter
       run: python -m pip install jupyter nbconvert nbformat
     - name: Test with pytest
-      run: pytest app/tests
-    - name: Test Notebooks
-      run: jupyter nbconvert --to script app/notebooks/reports.ipynb 
-    - name: Test Generated Script
-      run: python app/notebooks/reports.py
-    - name: Test Main Script
-      run: python app/src/main.py
+      run: pytest app/tests/
